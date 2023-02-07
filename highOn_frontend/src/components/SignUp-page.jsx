@@ -52,10 +52,10 @@ export const SignUp_page = () => {
           onChange={(e) => inputChangeHandler(e)}
         />
         <br />
-        <span>Username</span>
+        <span>Userid</span>
         <input
           type="text"
-          name="username"
+          name="userid"
           onChange={(e) => inputChangeHandler(e)}
         />
         <br />
@@ -68,6 +68,9 @@ export const SignUp_page = () => {
         <br />
         <input type="submit" name="sumbit" />
       </form>
+      <br />
+      <br />
+      <a href="/login_user">chick here to sign in</a>
     </>
   );
 };

@@ -36,14 +36,14 @@ export const Login_UserPage = () => {
           <h4>OWNER</h4>
         </a>
       </div>
-      <span>userid</span>
+      <span>userid: </span>
       <input
         type="text"
         name="username"
         onChange={(e) => setUserid(e.target.value)}
       />
       <br />
-      <span>password</span>
+      <span>password: </span>
       <input
         type="password"
         name="password"
