@@ -1,14 +1,12 @@
+import React from 'react'
 import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
 
-import {GoogleMap,useLoadScript,Marker} from "@react-google-maps/api"
 
 
 export const Map_page = () => {
-  
-  
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-
 
   const getLocation = async () => {
     if (navigator.geolocation) {
@@ -36,37 +34,48 @@ export const Map_page = () => {
   }, [latitude, longitude]);
 
 
-  const {isLoaded}=useLoadScript({
-    googleMapsApiKey:"AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM",
-  })
-  if(!isLoaded)
-  {
-    return (<>
-    <h2>loading..........</h2>
-    </>)
-  }
-  
-
 
   return (
     <>
-    <h2>map</h2>
-       <GoogleMap zoom={10} center={{lat:44,lng:-80}}></GoogleMap>
-      
+      <h2>map</h2>
+      <div>
+      <iframe
+
+              style={{
+
+                width: "90%",
+
+                height: "25rem",
+
+                margin: "auto",
+
+                padding: "auto",
+              }}
+
+              id="gmap_canvas"
+
+              src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d29472.562095858935!2d88.4306861!3d22.5764753!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1675838505340!5m2!1sen!2sin"
+
+            ></iframe>
+            <div>
+              <h5>latitude: {latitude}</h5>
+              <h5>longitude: {longitude}</h5>
+            </div>
+      </div>
+     
+
     </>
   );
 };
 
+function Map() {
+  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
 
-
-const showMap= ()=>{
-
-  return(
-    <>
-    <GoogleMap zoom={10} center={{lat:44,lng:-80}}></GoogleMap>
-    </>
-  )
-
+  return (
+    <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+      <Marker position={center} />
+    </GoogleMap>
+  );
 }
 
 
@@ -74,8 +83,4 @@ const showMap= ()=>{
 
 
 
-{/* <script
-  async
-  defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"
-></script>; */}
+
