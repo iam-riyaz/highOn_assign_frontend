@@ -31,6 +31,10 @@ export const Map_page = () => {
 
   useEffect(() => {
     console.log(longitude, latitude);
+
+    
+
+
   }, [latitude, longitude]);
 
 
