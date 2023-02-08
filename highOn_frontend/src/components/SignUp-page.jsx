@@ -22,6 +22,7 @@ export const SignUp_page = () => {
         .post("http://localhost:3000/signup", formData)
         .then(function (response) {
           console.log(response);
+          alert("user signed up successfully")
         })
         .catch(function (error) {
           console.log(error);

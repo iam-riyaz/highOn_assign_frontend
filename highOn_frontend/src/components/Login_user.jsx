@@ -9,6 +9,7 @@ export const Login_UserPage = () => {
   const navigate = useNavigate()
 
   const submitHandler = () => {
+    
     axios
       .post("http://localhost:3000/login_user", {
         userid: userid,
@@ -17,6 +18,7 @@ export const Login_UserPage = () => {
       .then(function (response) {
         alert("you logged in as USER successfully")
         console.log(response);
+        localStorage.setItem('id', JSON.stringify(response.data))
         navigate("/map_page")
       })
       .catch(function (error) {
